@@ -8,4 +8,15 @@ contract JIMAO is ERC20 {
   ERC20("Jimao coin", "JIMAO") {
     _mint(msg.sender, 1e18 * 1e8);
   }
+
+  mapping (address => bool) public minter;
+  uint public counter = 0;
+
+  function airdrop()
+  public payable returns (uint) {
+    require(minter[msg.sender] != true, "you have already received the airdrop");
+    minter[msg.sender] = true;
+    counter++;
+    return counter;
+  }
 }
