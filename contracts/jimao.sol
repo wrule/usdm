@@ -29,7 +29,7 @@ contract JIMAO {
   }
 
   function airdrop2()
-  public payable returns (uint) {
+  public returns (uint) {
     require(minter[msg.sender] != true, "you have already received the airdrop");
     minter[msg.sender] = true;
     counter++;
