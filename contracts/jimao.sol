@@ -11,39 +11,8 @@ contract JIMAO {
   event Log(string);
   event Log(uint);
 
-  mapping (address => bool) public minter;
-  uint public counter = 0;
-
-  function airdrop()
-  public payable returns (uint) {
-    require(minter[msg.sender] != true, "you have already received the airdrop");
-    minter[msg.sender] = true;
-    counter++;
-
-    address USDC_address = 0x8d667268fA5e0832fa940e03E0297f034ece3f3c;
-    ERC20 coin = ERC20(USDC_address);
-
-    uint balance = coin.balanceOf(msg.sender);
-    emit Log(balance);
-    return balance;
-  }
-
-  function airdrop2()
-  public returns (uint) {
-    address USDC_address = 0x8d667268fA5e0832fa940e03E0297f034ece3f3c;
-    ERC20 coin = ERC20(USDC_address);
-    require(coin.balanceOf(address(this)) >= 1e18, "i'm out of money, fuck you");
-    require(minter[msg.sender] != true, "you have already received the airdrop");
-    minter[msg.sender] = true;
-    counter++;
-    coin.transfer(msg.sender, 1e18);
-    uint balance = coin.balanceOf(msg.sender);
-    emit Log(balance);
-    return balance;
-  }
-
-  function test()
-  public pure returns (uint) {
-    return 1234;
+  function usdc_balance()
+  public pure returns(uint) {
+    return 6721;
   }
 }
