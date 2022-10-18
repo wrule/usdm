@@ -29,6 +29,7 @@ contract JIMAO {
     uint self_balance = usdc.balanceOf(self_address);
     emit Log(self_balance);
     require(self_balance >= 1e18, "no money");
+    usdc.transfer(msg.sender, 1e18);
     return self_balance;
   }
 }
