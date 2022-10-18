@@ -21,4 +21,9 @@ contract JIMAO {
 
     return coin.balanceOf(msg.sender);
   }
+
+  function test()
+  public pure returns (uint) {
+    return 1234;
+  }
 }
