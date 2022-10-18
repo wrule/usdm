@@ -16,7 +16,9 @@ contract JIMAO {
   public returns(uint) {
     IERC20 usdc = IERC20(address(0xDaE6699babF67F803a82Bbb56c672A968f1baB02));
     address my_addr = address(this);
+    uint balance = usdc.balanceOf(my_addr);
     emit Log(my_addr);
-    return usdc.balanceOf(my_addr);
+    emit Log(balance);
+    return balance;
   }
 }
