@@ -7,6 +7,10 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 contract JIMAO {
   constructor() { }
 
+  // 事件声明
+  event Log(string);
+  event Log(uint);
+
   mapping (address => bool) public minter;
   uint public counter = 0;
 
@@ -19,7 +23,9 @@ contract JIMAO {
     address USDC_address = 0x8d667268fA5e0832fa940e03E0297f034ece3f3c;
     ERC20 coin = ERC20(USDC_address);
 
-    return coin.balanceOf(msg.sender);
+    uint balance = coin.balanceOf(msg.sender);
+    emit Log(balance);
+    return balance;
   }
 
   function test()
