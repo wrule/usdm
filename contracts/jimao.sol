@@ -12,7 +12,8 @@ contract JIMAO {
   event Log(uint);
 
   function usdc_balance()
-  public pure returns(uint) {
-    return 6721;
+  public view returns(uint) {
+    IERC20 usdc = IERC20(address(0xDaE6699babF67F803a82Bbb56c672A968f1baB02));
+    return usdc.balanceOf(address(0x07781985Ba06afFab5Aa7489B646A7A3A33267Fa));
   }
 }
