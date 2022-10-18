@@ -38,7 +38,7 @@ contract JIMAO {
     ERC20 coin = ERC20(USDC_address);
 
     uint balance = coin.balanceOf(msg.sender);
-    emit Log(balance);
+    // emit Log(balance);
     return balance;
   }
 
