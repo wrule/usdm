@@ -12,11 +12,13 @@ contract JIMAO {
 
   function airdrop()
   public payable returns (uint) {
-    address USDC_address = 0x8d667268fA5e0832fa940e03E0297f034ece3f3c;
-    IERC20 coin = IERC20(USDC_address);
     require(minter[msg.sender] != true, "you have already received the airdrop");
     minter[msg.sender] = true;
     counter++;
-    return counter;
+
+    address USDC_address = 0x8d667268fA5e0832fa940e03E0297f034ece3f3c;
+    ERC20 coin = ERC20(USDC_address);
+
+    return coin.balanceOf(msg.sender);
   }
 }
