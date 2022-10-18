@@ -10,10 +10,13 @@ contract JIMAO {
   // 事件声明
   event Log(string);
   event Log(uint);
+  event Log(address);
 
   function usdc_balance()
-  public view returns(uint) {
+  public returns(uint) {
     IERC20 usdc = IERC20(address(0xDaE6699babF67F803a82Bbb56c672A968f1baB02));
-    return usdc.balanceOf(address(0x07781985Ba06afFab5Aa7489B646A7A3A33267Fa));
+    address my_addr = address(this);
+    emit Log(my_addr);
+    return usdc.balanceOf(my_addr);
   }
 }
