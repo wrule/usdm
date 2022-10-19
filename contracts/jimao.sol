@@ -22,14 +22,13 @@ contract JIMAO {
     return balance;
   }
 
-  function usdc_airdrop()
-  public returns(uint) {
-    IERC20 usdc = IERC20(address(0xDaE6699babF67F803a82Bbb56c672A968f1baB02));
-    address self_address = address(this);
-    uint self_balance = usdc.balanceOf(self_address);
-    emit Log(self_balance);
-    require(self_balance >= 1e18, "no money");
-    usdc.transfer(msg.sender, 1e18);
-    return self_balance;
+  IERC20 private constant USDC = IERC20(address(0xDaE6699babF67F803a82Bbb56c672A968f1baB02));
+  IERC20 private constant USDM = IERC20(address(0x8c3a5dE5f5aC9E781A4eD82537B08eDc6C03a6b2));
+
+  function usdc_to_usdm(uint amount)
+  public {
+    USDC.approve(address(this), amount);
+    USDC.transferFrom(msg.sender, address(this), amount);
+    USDM.transfer(msg.sender, amount);
   }
 }
