@@ -12,6 +12,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@openzeppelin/contracts": "^4.7.3"
+    "@openzeppelin/contracts": "^4.7.3",
+    "web3": "^1.8.0"
   }
 }

@@ -12,6 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 function main(callback) {
     return __awaiter(this, void 0, void 0, function* () {
         console.log('TypeScript脚本');
+        const accounts = yield web3.eth.getAccounts();
+        console.log(accounts);
         callback();
     });
 }
