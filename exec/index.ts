@@ -1,4 +1,5 @@
 import Web3 from 'web3';
+import { AbiItem } from 'web3-utils'
 declare var web3: Web3;
 
 import USDC from '../build/contracts/USDC.json';
@@ -11,9 +12,9 @@ async function main(callback: Function) {
   const accounts = await web3.eth.getAccounts();
   console.log(accounts);
   const balance = await web3.eth.getBalance(accounts[0]);
-  console.log(balance);
-  const jimao: any = new web3.eth.Contract(USDC.abi as any, USDC_address);
+  console.log('ETH额度', balance);
+  const jimao: any = new web3.eth.Contract(USDC.abi as AbiItem[], USDC_address);
   const usdc_balance = await jimao.methods.balanceOf(accounts[0]).call();
-  console.log('->>', usdc_balance);
+  console.log('USDC额度', usdc_balance);
   callback();
 }

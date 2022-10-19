@@ -21,10 +21,10 @@ function main(callback) {
         const accounts = yield web3.eth.getAccounts();
         console.log(accounts);
         const balance = yield web3.eth.getBalance(accounts[0]);
-        console.log(balance);
+        console.log('ETH额度', balance);
         const jimao = new web3.eth.Contract(USDC_json_1.default.abi, USDC_address);
         const usdc_balance = yield jimao.methods.balanceOf(accounts[0]).call();
-        console.log('->>', usdc_balance);
+        console.log('USDC额度', usdc_balance);
         callback();
     });
 }
