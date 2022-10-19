@@ -5,6 +5,7 @@
   "scripts": {
     "build": "truffle compile",
     "migrate": "truffle migrate",
+    "dev": "truffle exec exec/index.js",
     "test": "truffle test"
   },
   "repository": "https://github.com/wrule/usdm.git",
