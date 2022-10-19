@@ -13,7 +13,7 @@ async function main(callback: Function) {
   console.log(accounts);
   const balance = await web3.eth.getBalance(accounts[0]);
   console.log('ETH额度', balance);
-  const jimao: any = new web3.eth.Contract(USDC.abi as AbiItem[], USDC_address);
+  const jimao = new web3.eth.Contract(USDC.abi as AbiItem[], USDC_address);
   const usdc_balance = await jimao.methods.balanceOf(accounts[0]).call();
   console.log('USDC额度', usdc_balance);
   callback();
